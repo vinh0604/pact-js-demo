@@ -8,7 +8,7 @@ describe('Pact Verification', () => {
         let opts = {
             provider: 'BookService',
             providerBaseUrl: 'http://localhost:3001',
-            pactUrls: [path.resolve(process.cwd(), 'pacts', 'userservice-bookservice.json')]
+            pactBrokerUrl: 'http://localhost:8080'
         }
 
         new Verifier().verifyProvider(opts).then(() => { done() })

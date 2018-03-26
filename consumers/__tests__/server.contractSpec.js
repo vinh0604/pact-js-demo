@@ -1,4 +1,5 @@
 import { Pact } from '@pact-foundation/pact'
+import pact from '@pact-foundation/pact-node'
 import path from 'path'
 import request from 'supertest'
 import build from '../server'
@@ -65,8 +66,14 @@ describe('Pact', () => {
                 }, done)
         })
 
-        after(() => {
+        after((done) => {
             provider.finalize()
+            let opts = {
+                consumerVersion: "1.0.0",
+                pactBroker: 'http://localhost:8080',
+                pactFilesOrDirs: [path.resolve(process.cwd(), 'pacts')]
+            }
+            pact.publishPacts(opts).then(() => { done() })
         })
     })
 })
