@@ -6,9 +6,9 @@ pipeline {
         sh 'npm lint'
       }
     }
-    stage('Unit Test') {
+    stage('Test') {
       steps {
-        sh 'npm run unitTest'
+        sh 'npm test'
       }
     }
     stage('Integration Test') {
