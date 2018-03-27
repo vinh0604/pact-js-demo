@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Lint') {
       steps {
-        sh 'npm lint'
+        sh 'npm run lint'
       }
     }
     stage('Test') {
@@ -11,12 +11,7 @@ pipeline {
         sh 'npm test'
       }
     }
-    stage('Integration Test') {
-      steps {
-        sh 'npm run integrationTest'
-      }
-    }
-    stage('Publish Pact') {
+    stage('Publish Pacts') {
       steps {
         sh 'npm run publishPacts'
       }
