@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    node {
-      label 'Node test'
+    docker {
+      image 'node:8.10.0'
     }
     
   }
